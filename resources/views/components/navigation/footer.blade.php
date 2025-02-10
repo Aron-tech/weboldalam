@@ -29,7 +29,6 @@
                 </div>
             </div>
             <div class="col-span-2">
-                4c79bd
             </div>
         </div>
     </footer>

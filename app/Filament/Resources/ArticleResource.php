@@ -16,20 +16,25 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 
 class ArticleResource extends Resource
 {
     protected static ?string $model = Article::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Dinamikus tartalom';
+
+    protected static ?string $navigationLabel = 'Hírek';
+
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('title')->minLength(3)->required(),
-                Textarea::make('body')->rows(5)->required(),
-                Toggle::make('visible')->default(true),
+                TextInput::make('title')->label('Cím')->minLength(3)->required(),
+                Textarea::make('body')->label('Tartalom')->rows(5)->required(),
+                Toggle::make('visible')->label('Láthatóság')->default(true),
             ]);
     }
 
@@ -38,17 +43,18 @@ class ArticleResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')->sortable(),
-                TextColumn::make('title')->sortable()->searchable(),
-                TextColumn::make('body')->limit(50),
-                TextColumn::make('visible')->sortable(),
-                TextColumn::make('created_at')->dateTime(),
-                TextColumn::make('updated_at')->dateTime(),
+                TextColumn::make('title')->label('Cím')->sortable()->searchable(),
+                TextColumn::make('body')->label('Tartalom')->limit(50),
+                ToggleColumn::make('visible')->label('Láthatóság')->sortable(),
+                TextColumn::make('created_at')->label('Létrehozás dátuma')->dateTime(),
+                TextColumn::make('updated_at')->label('Módosítás dátuma')->dateTime(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

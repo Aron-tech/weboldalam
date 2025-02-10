@@ -1,6 +1,5 @@
-<div class="relative flex justify-center items-center overflow-hidden">
-    <!-- Kártyák konténer -->
-    <div class="flex transition-transform duration-500 transform" id="framework-container">
+<div class="relative flex justify-center items-center overflow-hidden w-full">
+    <div id="framework-container" class="flex transition-transform duration-500">
         <!-- Tailwind CSS kártya -->
         <div class="bg-white/70 rounded-lg p-6 sm:p-10 text-center w-3/4 sm:w-1/3 flex-shrink-0 framework-card" data-experience="3" data-start-year="2020">
             <!-- Tailwind CSS SVG ikon -->

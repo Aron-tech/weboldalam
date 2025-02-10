@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->json('icons');
+            $table->string('icon');
             $table->json('content')->min(3);
             $table->json('images')->nullable();
             $table->json('videos')->nullable();

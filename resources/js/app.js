@@ -1,7 +1,10 @@
+import Aos from 'aos';
 import './bootstrap';
 
 const hamburgerIcon = document.getElementById('hamburger-icon');
 const mobileMenu = document.getElementById('mobile-menu');
+
+Aos.init();
 
 hamburgerIcon.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');

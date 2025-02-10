@@ -10,6 +10,8 @@ class Article extends Model
     /** @use HasFactory<\Database\Factories\ArticleFactory> */
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     protected $fillable = [
         'title',
         'body',

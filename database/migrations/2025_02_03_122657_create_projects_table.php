@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('slug')->min(3)->unique()->nullalbe(false);
             $table->string('cover');
             $table->json('images')->nullable();
-            $table->string('status')->default('Folyamatban');
+            $table->string('status')->default('inprogress');
             $table->boolean('visible')->default(true);
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();

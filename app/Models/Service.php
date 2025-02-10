@@ -9,4 +9,22 @@ class Service extends Model
 {
     /** @use HasFactory<\Database\Factories\ServiceFactory> */
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'icon',
+        'content',
+        'images',
+        'videos',
+        'visible',
+    ];
+
+    protected $casts = [
+        'content' => 'json',
+        'videos' => 'json',
+        'images' => 'json',
+    ];
 }

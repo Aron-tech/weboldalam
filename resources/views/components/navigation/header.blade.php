@@ -1,4 +1,4 @@
-<header id="navbar" class="fixed top-0 left-0 w-full bg-white transition-all duration-300 border-b-2 border-gray-300">
+<header id="navbar" class="fixed top-0 left-0 w-full bg-white transition-all duration-300 border-b-2 border-gray-300 z-50">
     <div class="grid grid-cols-[1fr_5fr_1fr] items-center justify-items-center">
         <img src="{{ asset('images/bestwhite.png') }}" class="ml-20 h-20" alt="">
 

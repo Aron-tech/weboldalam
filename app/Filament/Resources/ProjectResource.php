@@ -22,10 +22,17 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\DateInput;
 use Filament\Forms\Components\DatePicker;
+use App\Models\Tag;
+use Filament\Tables\Columns\FileUploadColumn;
+use Filament\Tables\Columns\ImageColumn;
 
 class ProjectResource extends Resource
 {
     protected static ?string $model = Project::class;
+
+    protected static ?string $navigationGroup = 'Dinamikus tartalom';
+
+    protected static ?string $navigationLabel = 'Projektek';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -60,11 +67,25 @@ class ProjectResource extends Resource
                         'active' => 'Folyamatban',
                         'inactive' => 'Inaktív',
                     ])->required(),
-                    TextInput::make('github')->url()->required(),
-                    TextInput::make('demo')->url()->nullable(),
-                    DatePicker::make('start_date')->label('Kezdési időpont'),
-                    DatePicker::make('end_date')->label('Befejezési időpont'),
-                    Toggle::make('visible')->default(true),
+                    Select::make('tags')
+                        ->relationship('tags', 'name')
+                        ->multiple()
+                        ->preload()
+                        ->searchable()
+                        ->label('Címkék')
+                        ->required(),
+                    TextInput::make('github')
+                        ->url()
+                        ->required(),
+                    TextInput::make('demo')
+                        ->url()
+                        ->nullable(),
+                    DatePicker::make('start_date')
+                        ->label('Kezdési időpont'),
+                    DatePicker::make('end_date')
+                        ->label('Befejezési időpont'),
+                    Toggle::make('visible')
+                        ->default(true),
                 ])
             ]);
     }
@@ -73,17 +94,19 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->sortable()->searchable(),
-                TextColumn::make('description')->sortable()->searchable(),
-                ToggleColumn::make('visible')->sortable(),
-                TextColumn::make('created_at')->dateTime()->sortable(),
-
+                ImageColumn::make('cover')->label('Borítókép'),
+                TextColumn::make('title')->label('Cím')->sortable()->searchable(),
+                TextColumn::make('description')->label('Leírás')->sortable()->searchable(),
+                ToggleColumn::make('visible')->label('Láthatóság')->sortable(),
+                TextColumn::make('created_at')->label('Létrehozás dátuma')->dateTime()->sortable(),
+                TextColumn::make('updated_at')->label('Módosítás dátuma')->dateTime()->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
