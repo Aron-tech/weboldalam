@@ -16,7 +16,6 @@
             </div>
             <img src="{{asset('images/background.png')}}" class="mt-32 hidden lg:block xl:visible 2xl:visible justify-end w-2/4" alt="" data-aos="fade-down-left" data-aos-duration="1000">
         </div>
-
         <div class="m-10 p-0 sm:p-10">
             <h2 class="text-gray-800 font-light text-2xl sm:text-4xl font-frankruhl" data-aos="fade-down" data-aos-duration="800">Legújabb hírek</h2>
             <div class="mt-6 sm:mt-10 grid grid-cols-1 grid-rows-3 gap-4 justify-between">
@@ -32,7 +31,6 @@
                 @endforeach
             </div>
         </div>
-
         <div class="m-10 p-6 sm:p-10">
             <h2 class="text-gray-800 font-light text-2xl sm:text-4xl font-frankruhl" data-aos="fade-down" data-aos-duration="800">Mivel foglalkozom?</h2>
             <div class="mt-6 sm:mt-10 grid lg:grid-cols-2 grid-cols-1 grid-rows-3 gap-4 justify-between">
@@ -63,7 +61,6 @@
             <div class="justify-center w-full flex flex-col space-y-4">
                 <h2 class="text-gray-800 font-light text-2xl sm:text-4xl font-frankruhl" data-aos="fade-left" data-aos-duration="600">Aktuális munkáim</h2>
                 @foreach ($projects as $project)
-
                     <x-card.project :project="$project" :index="$loop->index"/>
                 @endforeach
             </div>

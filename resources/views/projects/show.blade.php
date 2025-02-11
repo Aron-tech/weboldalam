@@ -2,12 +2,11 @@
 
 @section('content')
 <div class="sm:max-w-7xl mx-auto p-6">
-    <!-- Borítókép -->
-    <div class="mt-20 mb-6">
-        <img src="{{ asset($project->cover) }}" alt="{{ $project->title }}" class="w-full rounded-lg shadow-lg object-cover h-80 md:h-96">
+    <div id="images-container" class="mt-20 mb-10 relative max-w-1/2 h-96 flex justify-center rounded-3xl overflow-hidden"  data-images='@json(collect($project->images)->map(fn($img) => asset($img)))'>
+        @vite('resources/js/image_changer.js')
     </div>
     <h1>{{ $project->title }}</h1>
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-3 sm:gap-8 gap-4">
         <div class="col-span-2">
             <p class="text-gray-700 text-lg mt-4 leading-relaxed">{{ $project->body }}</p>
         </div>
@@ -48,7 +47,7 @@
                 @endif
             </div>
         </div>
-        <x-gallery :images="$project->images" :id="$project->id"/>
     </div>
+
 </div>
 @endsection

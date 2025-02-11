@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
@@ -28,7 +26,7 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from($data['email'])
+        return $this->from($this->data['email'])
                     ->subject('Új kapcsolatfelvétel')
                     ->view('emails.contact')
                     ->with('data', $this->data);

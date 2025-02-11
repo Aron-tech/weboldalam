@@ -38,12 +38,16 @@ class PageController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
+            'phone' => 'string|nullable|max:13',
+            'subject' => 'required|string|max:255',
             'message' => 'required|string',
         ]);
 
         $data = [
             'name' => $request->name,
             'email' => $request->email,
+            'phone' => $request->phone,
+            'subject' => $request->subject,
             'message' => $request->message,
         ];
 

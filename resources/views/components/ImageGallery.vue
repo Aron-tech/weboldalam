@@ -8,7 +8,7 @@
         :src="image"
         :class="[
           'absolute inset-0 w-full h-full object-cover transition-all duration-1000',
-          currentIndex === index ? 'opacity-100' : 'opacity-0',
+          currentIndex === index ? 'opacity-100' : 'opacity-100',
           animationClasses
         ]"
         v-show="currentIndex === index"
