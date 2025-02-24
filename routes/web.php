@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('/rolam', [PageController::class, 'about'])->name('about');
+Route::view('/rolam', 'about')->name('about');
 
-Route::get('/kapcsolat', [PageController::class, 'contact'])->name('contact');
+Route::view('/kapcsolat', 'contact')->name('contact');
 
 Route::post('/mail-send',[PageController::class, 'mailSend'])->name('contact.send');
 
