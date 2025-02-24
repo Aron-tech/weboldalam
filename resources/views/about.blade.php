@@ -5,23 +5,22 @@
     <div style="background-image: url('{{asset('images/jobbfent2.svg')}}'); background-repeat: no-repeat; background-position: center; background-size: contain;">
         <div class="mt-20 sm:mt-10 p-6 sm:p-10 grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-cover bg-center min-h-screen">
             <div class="flex justify-center" data-aos="fade-down-right" data-aos-duration="1000">
-                <img src="{{ asset('images/profile.jpg') }}" alt="Papp Áron"
+                <img src="{{ asset(get_static_content('about', 'image')) }}" alt="Papp Áron"
                     class="rounded-full w-64 h-64 object-cover shadow-lg shadow-primary">
             </div>
 
             <div class="space-y-6 mr-6" data-aos="fade-down-left" data-aos-duration="1000">
                 <h1 class="text-left font-frankruhl font-light text-6xl">
-                    Helló, én <span class="text-primary">Papp Áron</span> vagyok!
+                    {!! get_static_content('about', 'title') !!}
                 </h1>
                 <p class="text-lg font-opensans">
-                    Mérnökinformatikus hallgató vagyok a Széchenyi István Egyetemen.
-                    Szeretem a webfejlesztést, és különösen érdekel a reszponzív dizájn, a UI/UX és az optimalizált felhasználói élmény.
+                    {!! get_static_content('about', 'text') !!}
                 </p>
                 <p class="text-lg font-opensans">
-                    A weboldalon megtekintheted a projektjeimet, valamint többet megtudhatsz rólam.
+                    {!! get_static_content('about', 'text2') !!}
                 </p>
                 <div class="pt-4">
-                    <a href="#" download="Papp_Áron Önéletrajz" class="font-frankruhl font-semibold shadow-primary shadow-lg hover:shadow tracking-wider rounded-3xl text-primary hover:text-bg-color hover:bg-primary border-primary border-2 uppercase text-center py-3 px-8">Önéletrajz letöltése</a>
+                    <a href="{{ asset(get_static_content('about', 'oneletrajz')) }}" download class="font-frankruhl font-semibold shadow-primary shadow-lg hover:shadow tracking-wider rounded-3xl text-primary hover:text-bg-color hover:bg-primary border-primary border-2 uppercase text-center py-3 px-8">Önéletrajz letöltése</a>
                 </div>
             </div>
         </div>
