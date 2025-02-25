@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('static_contents', function (Blueprint $table) {
+        Schema::create('qualifications', function (Blueprint $table) {
             $table->id();
-            $table->string('page');
-            $table->string('key');
-            $table->json('value');
+            $table->string('image');
+            $table->string('name');
+            $table->string('label')->nullable();
+            $table->smallInteger('type')->default(0); // 0 => "Tanulmányok", 1 => "Tapasztalatok"
+            $table->string('duration')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('static_contents');
+        Schema::dropIfExists('qualifications');
     }
 };
