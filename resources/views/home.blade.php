@@ -33,20 +33,20 @@
         </div>
         <div class="m-10 p-6 sm:p-10">
             <h2 class="text-gray-800 font-light text-2xl sm:text-4xl font-frankruhl" data-aos="fade-down" data-aos-duration="800">Mivel foglalkozom?</h2>
-            <div class="mt-6 sm:mt-10 grid lg:grid-cols-2 grid-cols-1 grid-rows-3 gap-4 justify-between">
-                <div class="flex flex-col items-center justify-center bg-white shadow-gray-300 shadow-lg hover:shadow border rounded-lg p-6 sm:p-10 lg:h-96" data-aos="fade-up">
+            <div class="mt-6 sm:mt-10 grid lg:grid-cols-2 grid-cols-1 gap-4 justify-between">
+                <div class="flex flex-col items-center justify-center bg-white shadow-gray-300 shadow-lg hover:shadow border rounded-lg p-6 sm:p-10 h-96" data-aos="fade-up">
                     <i class="mb-2 text-6xl fa-brands fa-wordpress"></i>
                     <h3 class="text-xl sm:text-3xl font-frankruhl font-light text-center">WordPress weboldal készítés</h3>
                 </div>
-                <div class="w-full flex flex-col items-center justify-center bg-white rounded-lg p-6 sm:p-10 shadow-lg shadow-gray-300 hover:shadow" data-aos="fade-up">
+                <div class="w-full flex flex-col items-center justify-center bg-white rounded-lg p-6 sm:p-10 shadow-lg shadow-gray-300 hover:shadow h-96" data-aos="fade-up">
                     <i class="mb-2 text-6xl fa-regular fa-file-word"></i>
-                    <h3 class="text-xl sm:text-3xl font-frankruhl font-light text-center">Egyszerű weboldlal készítése</h3>
+                    <h3 class="text-xl sm:text-3xl font-frankruhl font-light text-center">Egyszerű weboldal készítése</h3>
                 </div>
-                <div class="w-full flex flex-col items-center justify-center bg-white rounded-lg p-6 sm:p-10 shadow-lg shadow-gray-300 hover:shadow" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-full flex flex-col items-center justify-center bg-white rounded-lg p-6 sm:p-10 shadow-lg shadow-gray-300 hover:shadow h-96" data-aos="fade-up" data-aos-delay="200">
                     <i class="mb-2 text-6xl fas fa-sitemap"></i>
                     <h3 class="text-xl sm:text-3xl font-frankruhl font-light text-center">Komplex webalkalmazás készítés</h3>
                 </div>
-                <div class="w-full flex flex-col items-center justify-center bg-white rounded-lg p-6 sm:p-10 shadow-lg shadow-gray-300 hover:shadow" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-full flex flex-col items-center justify-center bg-white rounded-lg p-6 sm:p-10 shadow-lg shadow-gray-300 hover:shadow h-96" data-aos="fade-up" data-aos-delay="200">
                     <i class="mb-2 text-6xl fa-brands fa-discord"></i>
                     <h3 class="text-xl sm:text-3xl font-frankruhl font-light text-center">Egyedi Discord bot készítés</h3>
                 </div>

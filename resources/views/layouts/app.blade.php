@@ -22,8 +22,18 @@
     </head>
     <body>
        <x-navigation.header/>
-       <main>
+       <main class="max-w-screen">
             @yield('content')
+            <div id="widget-container"></div>
+            <script>
+                window.widgetConfig = {
+                    apiUrl: 'https://szakdolgozat.test/api',
+                    containerId: 'widget-container',
+                    cssUrl: 'https://szakdolgozat.test/css/widget/darkmode.css',
+                    siteId: 'paron',
+                };
+            </script>
+           <script src="https://szakdolgozat.test/js/widget.js"></script>
        </main>
     </main>
     <x-navigation.footer/>
