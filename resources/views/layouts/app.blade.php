@@ -27,13 +27,13 @@
             <div id="widget-container"></div>
             <script>
                 window.widgetConfig = {
-                    apiUrl: 'https://szakdolgozat.test/api',
+                    apiUrl: 'https://diploma.test/api',
                     containerId: 'widget-container',
-                    cssUrl: 'https://szakdolgozat.test/css/widget/darkmode.css',
+                    cssUrl: 'https://diploma.test/css/widget/darkmode.css',
                     siteId: 'paron',
                 };
             </script>
-           <script src="https://szakdolgozat.test/js/widget.js"></script>
+           <script src="https://diploma.test/js/widget.js"></script>
        </main>
     </main>
     <x-navigation.footer/>
