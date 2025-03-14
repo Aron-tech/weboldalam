@@ -30,7 +30,7 @@
                     apiUrl: 'https://szakdolgozat.test/api',
                     containerId: 'widget-container',
                     cssUrl: 'https://szakdolgozat.test/css/widget/default.css',
-                    siteId: 'b6514b77-d6bb-40ba-a4aa-e52c402b992a',
+                    siteId: 'uR9carWnRITFE6_GWWTqzIsy',
                 };
             </script>
            <script src="https://szakdolgozat.test/js/widget.js"></script>
