@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration
@@ -38,12 +38,10 @@ return new class extends Migration
             $table->integer('last_activity')->index();
         });
 
-        DB::table('users')->insert([
+        User::create([
             'name' => 'Papp Áron',
             'email' => 'admin@paron.hu',
-            'password' => Hash::make('password'),
-            'created_at' => now(),
-            'updated_at' => now(),
+            'password' => Hash::make('password')
         ]);
     }
 
