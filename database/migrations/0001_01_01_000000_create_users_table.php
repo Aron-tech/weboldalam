@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration
 {
@@ -37,10 +38,12 @@ return new class extends Migration
             $table->integer('last_activity')->index();
         });
 
-        DB::insert('insert into users (name, email, password) values (?, ?, ?)', [
-            'Admin',
-            'admin@paron.hu',
-            'password',
+        DB::table('users')->insert([
+            'name' => 'Papp Áron',
+            'email' => 'admin@paron.hu',
+            'password' => Hash::make('password'),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 
