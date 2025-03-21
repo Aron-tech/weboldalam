@@ -24,10 +24,9 @@
        <x-navigation.header/>
        <main class="max-w-screen">
             @yield('content')
-            <div id="widget-container"></div>
+            <div id="conversiveai-widget-container"></div>
             <script>
                 window.widgetConfig = {
-                    containerId: 'widget-container',
                     cssUrl: 'https://szakdolgozat.test/css/widget/default.css',
                     siteId: 'uR9carWnRITFE6_GWWTqzIsy',
                 };
