@@ -27,7 +27,6 @@
             <div id="widget-container"></div>
             <script>
                 window.widgetConfig = {
-                    apiUrl: 'https://szakdolgozat.test/api',
                     containerId: 'widget-container',
                     cssUrl: 'https://szakdolgozat.test/css/widget/default.css',
                     siteId: 'uR9carWnRITFE6_GWWTqzIsy',
