@@ -15,7 +15,7 @@ export default {
           },
         colors: {
           'primary': '#3c8acf',
-          'bg-color': '#F4F4F4',
+          'light-gray': '#F4F4F4',
         },
         animation: {
             bounceCustom: "bounceCustom 0.9s linear infinite",
@@ -67,5 +67,7 @@ export default {
           },
       },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+      ],
   }

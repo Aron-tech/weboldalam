@@ -1,13 +1,17 @@
 <?php
 namespace App\Models;
 
+use App\Enums\ProjectTypesEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Tag;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Sevendays\FilamentPageBuilder\Models\Contracts\Blockable;
+use Sevendays\FilamentPageBuilder\Models\Traits\HasBlocks;
 
-class Project extends Model
+class Project extends Model implements Blockable
 {
-    use HasFactory;
+    use HasFactory, HasBlocks;
 
     protected $guarded = ['id'];
 
@@ -19,7 +23,6 @@ class Project extends Model
     protected $fillable = [
         'title',
         'description',
-        'body',
         'cover',
         'slug',
         'status',
@@ -33,9 +36,10 @@ class Project extends Model
 
     protected $casts = [
         'images' => 'json',
+        'status' => ProjectTypesEnum::class,
     ];
 
-    public function tags()
+    public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class, 'project_tag')->withTimestamps();
     }

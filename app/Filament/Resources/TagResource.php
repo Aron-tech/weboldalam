@@ -11,8 +11,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -25,12 +24,16 @@ class TagResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
+    protected static ?int $navigationSort = 3;
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('name')->label('Név')->unique()->minLength(3)->required(),
-                Toggle::make('visible')->label('Láthatóság')->default(true),
+                Group::make([
+                    TextInput::make('name')->label('Név')->unique()->minLength(3)->required(),
+                    Toggle::make('visible')->label('Láthatóság')->default(true),
+                ]),
             ]);
     }
 

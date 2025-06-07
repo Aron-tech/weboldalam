@@ -3,15 +3,12 @@
 namespace App\Filament\Pages;
 
 use Filament\Pages\Page;
-use Filament\Forms;
 use App\Models\StaticContent;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\File;
-use Pest\Mutate\Mutators\ControlStructures\ForeachEmptyIterable;
+use Illuminate\Support\Facades\Storage;
 
 abstract class BaseStaticPage extends Page implements HasForms
  {
@@ -20,7 +17,9 @@ abstract class BaseStaticPage extends Page implements HasForms
 
     public array $content = [];
 
+    protected static ?string $navigationGroup = 'Statikus tartalom';
 
+    protected static string $view = 'filament.pages.static-page';
 
     abstract protected function getPageKey(): string;
 
@@ -47,6 +46,12 @@ abstract class BaseStaticPage extends Page implements HasForms
         $this->validate();
 
         foreach ($this->form->getState() as $key => $value) {
+
+            if($this->isFilePath($value)) {
+                $old_file = StaticContent::where('page', $this->getPageKey())->where('key', $key)->pluck('value')->first();
+                if(isset($old_file) && Storage::disk('public')->exists($old_file))
+                    Storage::disk('public')->delete($old_file);
+            }
 
             StaticContent::updateOrCreate(
                 ['page' => $this->getPageKey(), 'key' => $key],

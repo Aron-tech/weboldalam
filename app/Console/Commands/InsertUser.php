@@ -30,7 +30,7 @@ class InsertUser extends Command
         User::create([
             'name' => 'Papp Áron',
             'email' => 'admin@paron.hu',
-            'password' => Hash::make('password')
+            'password' => Hash::make('----')
         ]);
     }
 }

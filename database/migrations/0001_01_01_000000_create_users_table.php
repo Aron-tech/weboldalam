@@ -39,8 +39,8 @@ return new class extends Migration
         });
 
         User::create([
-            'name' => 'Papp Áron',
-            'email' => 'admin@paron.hu',
+            'name' => 'Felhasználó',
+            'email' => 'admin@felhasznalo.hu',
             'password' => Hash::make('password')
         ]);
     }
